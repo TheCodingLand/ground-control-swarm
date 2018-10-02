@@ -1,0 +1,30 @@
+version: '3.6'
+services:
+
+  ground-station:
+    build: 
+      context: ./ground-control
+      args:
+        PROJECT: Groundstation-v2-Backend-Fork
+        REPO: https://github.com/nuttwerx/Groundstation-v2-Backend
+        GOLANG_VERSION: 1.11
+        PROTOC_VERSION: 3.6.1
+        COMMIT: 8099af4be8aeb1409f771204daa063e5b3e50ac1
+    networks:
+      - net
+    
+  ground-station-web:
+    build: 
+      context: ./react-ground-control
+    ports:
+      - 8888:3000
+    networks:
+      - net
+    args:
+      REPO: https://github.com/rLoopTeam/react-groundstation-v2
+      COMMIT: 8099af4be8aeb1409f771204daa063e5b3e50ac1
+
+    
+networks:
+  net:
+    external: true
