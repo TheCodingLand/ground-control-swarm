@@ -18,6 +18,5 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo groupadd docker
 sudo gpasswd -a $USER docker
 
-sudo docker create network web
-sudo docker stack deploy ground-control.yml
-sudo docker stack deploy monitoring.yml
+sudo docker-compose -c ground-control.yml build
+
