@@ -16,14 +16,15 @@ services:
   ground-station-web:
     build: 
       context: ./react-ground-control
+      args:
+        REPO: https://github.com/rLoopTeam/react-groundstation-v2
+        COMMIT: 8099af4be8aeb1409f771204daa063e5b3e50ac1
+
     ports:
       - 8888:3000
     networks:
       - net
-    args:
-      REPO: https://github.com/rLoopTeam/react-groundstation-v2
-      COMMIT: 8099af4be8aeb1409f771204daa063e5b3e50ac1
-
+   
     
 networks:
   net:
